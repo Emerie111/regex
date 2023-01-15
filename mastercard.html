@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterCard Validator with RegEx</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="output"></div>
+
+    <input type="text" id="input">
+    <button onclick="validate()">Validate</button>
+
+    <script>
+    function validateMastercard(cardNumber) {
+        // regular expression to match a Mastercard credit card number
+        var regex = /^(?:5[1-5][0-9]{14})$/;
+  
+        // check if the card number matches the regular expression
+        if (regex.test(cardNumber)) {
+           return true;
+           } else {
+           return false;
+        }
+    }
+
+    function validate() {
+        var input = document.getElementById("input").value;
+        var output = document.getElementById("output");
+  
+        if (validateMastercard(input)) {
+            output.innerHTML = "Valid Mastercard credit card number.";
+            } else {
+            output.innerHTML = "Invalid Mastercard credit card number.";
+        }
+    }
+    </script>
+
+</body>
